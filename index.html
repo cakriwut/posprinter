@@ -709,9 +709,13 @@
                    
                             var node = document.getElementById('PrintContent');
                             domtoimage.toJpeg(node).then(function (dataUrl) {
-                                IminPrintInstance.partialCut();
+                                //IminPrintInstance.partialCut();
                                 IminPrintInstance.printSingleBitmap(dataUrl);
-                                IminPrintInstance.printAndFeedPaper(200); 
+                                setTimeout(function() {
+                                    IminPrintInstance.partialCut();
+                                    IminPrintInstance.printAndFeedPaper(200); 
+                                },1000);
+                                
                                 //IminPrintInstance.partialCut();
                                 // IminPrintInstance.printAndFeedPaper(200);    
                                 // cutPaper(Instance);                            
