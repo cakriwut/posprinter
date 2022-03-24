@@ -1319,8 +1319,9 @@
                         case 26:
                             var node = document.getElementById('PrintContent');
                             domtoimage.toJpeg(node).then(function (dataUrl) {
-                                IminPrintInstance.printSingleBitmap(dataUrl)
-                                IminPrintInstance.printAndFeedPaper(100)
+                                IminPrintInstance.printSingleBitmap(dataUrl);
+                                IminPrintInstance.printAndFeedPaper(200);
+                                ImitPrintInstance.partialCut();
                             });
                             break;
                         case 27:
