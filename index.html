@@ -712,8 +712,9 @@
                                 //IminPrintInstance.partialCut();
                                 IminPrintInstance.printSingleBitmap(dataUrl);
                                 setTimeout(function() {
+                                    IminPrintInstance.printAndFeedPaper(200);
                                     IminPrintInstance.partialCut();
-                                    IminPrintInstance.printAndFeedPaper(200); 
+                                    IminPrintInstance.printAndFeedPaper(100); 
                                 },2000);
                                 
                                 //IminPrintInstance.partialCut();
