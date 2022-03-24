@@ -899,6 +899,7 @@
                 mui('body').on('tap', '.print-box .print-box-item', function (e) {
                     e.preventDefault();
 
+                    console.log('logged');
                     console.log($(this));
                     switch ($(this).index()) {
                         // 初始化打印机
