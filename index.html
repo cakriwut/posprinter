@@ -546,7 +546,7 @@
             <div style="text-align:center;font-size: 30px;margin-top: 10px;">The Frontier Community Club</div>
             <div style="text-align:center;margin-top: 20px;font-size: 28px;">
                 REG Nn：200501519R<br>
-                GST No.：20-0501519-R
+                Your queue numbe XXXX
             </div>
             <div style="font-size: 28px;text-align:center;margin-top:20px;width: 100%;">
                 2 Orchand Turn，#B3-25/26，ION Orchand
@@ -710,6 +710,7 @@
                             var node = document.getElementById('PrintContent');
                             domtoimage.toJpeg(node).then(function (dataUrl) {
                                 IminPrintInstance.printSingleBitmap(dataUrl);
+                                IminPrintInstance.printAndFeedPaper(200); 
                                 IminPrintInstance.partialCut();
                                 // IminPrintInstance.printAndFeedPaper(200);    
                                 // cutPaper(Instance);                            
