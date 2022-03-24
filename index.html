@@ -709,8 +709,9 @@
                             var node = document.getElementById('PrintContent');
                             domtoimage.toJpeg(node).then(function (dataUrl) {
                                 IminPrintInstance.printSingleBitmap(dataUrl);
-                                IminPrintInstance.printAndFeedPaper(200);    
-                                cutPaper(Instance);                            
+                                IminPrintInstance.partialCut();
+                                // IminPrintInstance.printAndFeedPaper(200);    
+                                // cutPaper(Instance);                            
                             });
                            
                 })
