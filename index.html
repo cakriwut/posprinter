@@ -900,10 +900,10 @@
                     e.preventDefault();
 
                     console.log('logged');
-                    console.log($(this));
-                    switch ($(this).index()) {
+                    // console.log($(this));
+                    // switch ($(this).index()) {
                         
-                        case 26:
+                    //     case 26:
                             var node = document.getElementById('PrintContent');
                             domtoimage.toJpeg(node).then(function (dataUrl) {
                                 IminPrintInstance.printSingleBitmap(dataUrl);
@@ -912,7 +912,7 @@
                             });
                             break;
                         
-                    }
+                    // }
                 })
 
             }
