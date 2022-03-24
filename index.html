@@ -709,15 +709,16 @@
                    
                             var node = document.getElementById('PrintContent');
                             domtoimage.toJpeg(node).then(function (dataUrl) {
+                                IminPrintInstance.partialCut();
                                 IminPrintInstance.printSingleBitmap(dataUrl);
                                 IminPrintInstance.printAndFeedPaper(200); 
                                 //IminPrintInstance.partialCut();
                                 // IminPrintInstance.printAndFeedPaper(200);    
                                 // cutPaper(Instance);                            
-                            }).then(function() {
-                                IminPrintInstance.printAndFeedPaper(200); 
-                                IminPrintInstance.partialCut();
-                            });
+                            }); //.then(function() {
+                               // IminPrintInstance.printAndFeedPaper(200); 
+                                
+                            //});
                            
                 })
 
