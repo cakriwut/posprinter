@@ -898,6 +898,8 @@
                 var QrCodeSize;
                 mui('body').on('tap', '.print-box .print-box-item', function (e) {
                     e.preventDefault();
+
+                    console.log($(this));
                     switch ($(this).index()) {
                         // 初始化打印机
                         case 0:
