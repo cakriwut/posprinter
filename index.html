@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -83,9 +82,7 @@
         }
 
         fieldset,
-        img {
-            border: 0
-        }
+
 
         abbr,
         acronym {
@@ -159,111 +156,11 @@
             text-decoration: none
         }
 
-        .contianer {
-            padding: 0.3rem 0.2rem;
-        }
-
-        .mobile-select-box {
-            position: relative;
-            display: inline-block;
-        }
-
-        .mobile-select-box .mobile-select-selectd {
-            width: 3rem;
-            height: 0.62rem;
-            line-height: 0.63rem;
-            color: #666;
-            border-radius: 0.15rem;
-            border: 1px solid #ddd;
-            padding: 0 0.5rem;
-            font-size: 0.3rem;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .mobile-select-box .mobile-select-selectd::after {
-            border: 0.1rem solid transparent;
-            content: ' ';
-            height: 0;
-            position: absolute;
-            width: 0;
-            top: 0.23rem;
-            border-top: 0.15rem solid #666;
-            right: 0.15rem;
-
-        }
-
-        .mobile-select-box.focus .mobile-select-selectd {
-            box-shadow: 0 0.1rem 0.5rem rgb(0 0 0 / 20%);
-        }
-
-        .mobile-select-box .mobile-select-list {
-            width: 100%;
-            border-radius: 0.1rem;
-            box-shadow: 0 0.1rem 0.5rem rgb(0 0 0 / 20%);
-            background-color: #fff;
-            padding: 0.3rem 0;
-            position: absolute;
-            top: 0.85rem;
-            left: 0;
-            z-index: 999;
-            display: none;
-        }
-
-        .mobile-select-box .mobile-select-list::before {
-            border: 0.1rem solid transparent;
-            content: ' ';
-            height: 0;
-            position: absolute;
-            width: 0;
-            top: -0.24rem;
-            border-bottom: 0.15rem solid #fff;
-            box-shadow: 0 0.1rem 0.5rem rgb(0 0 0 / 20%);
-            right: 0.3rem;
-        }
-
-        .mobile-select-box .mobile-select-list .mobile-select-list-item:hover {
-            background-color: rgba(189, 176, 176, 0.3);
-        }
-
-        .mobile-select-box .mobile-select-list .mobile-select-list-item.selectd {
-            color: rgb(131, 121, 244);
-        }
-
-        .mobile-select-box .mobile-select-list .mobile-select-list-item {
-            padding: 0 0.5rem;
-            line-height: 0.64rem;
-            cursor: pointer;
-        }
-
-        .print-box {
-            display: flex;
-            justify-content: space-around;
-            /* justify-content: space-between; */
-            margin-top: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .print-box .print-box-item:hover {
-            box-shadow: 0 0.1rem 0.5rem rgb(0 0 0 / 20%);
-        }
-
-        .print-box .print-box-item {
-            width: 3rem;
-            height: 2rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            margin-bottom: 0.2rem;
-            border-radius: 0.1rem;
-            background-color: #ddd;
-        }
     </style>
     <style>
         html {
             border: 0px solid #FFFFFF !important;
+            height: 100%;
         }
 
         body {
@@ -272,6 +169,7 @@
             background-color: #F5F5F5;
             color: #333333;
             border: 0px solid #FFFFFF !important;
+            height: 100%;
         }
 
         #PrintContent {
@@ -283,116 +181,35 @@
             border: 0px solid #FFFFFF !important;
         }
 
-        .clearboth {
-            clear: both;
+        .container {
+            background-color: #f5f5f5;
+            border: #f5f5f5 solid 5px;
+            height: 100%;
         }
-
-        .fs12 {
-            font-size: 12px !important;
-        }
-
-        .fs13 {
-            font-size: 13px !important;
-        }
-
-        .fs16 {
-            font-size: 28px !important;
-        }
-
-        .fs18 {
-            font-size: 30px !important;
-        }
-
-        .fs28 {
-            font-size: 28px !important;
-        }
-
-        .fs22 {
-            font-size: 28px !important;
-        }
-
-        .center {
-            text-align: center;
-        }
-
-        .left {
-            float: left;
-        }
-
-        .right {
-            float: right;
-        }
-
-        .mgt5 {
-            margin-top: 5px;
-        }
-
-        .mgt10 {
-            margin-top: 20px;
-        }
-
-        .pdt20 {
-            padding-top: 20px;
-        }
-
-        .pdt10 {
-            padding-top: 20px;
-        }
-
-        .line {
-            border-bottom: 1px dotted #333333;
-            height: 5px;
-        }
-
-        .middle {
-            position: absolute;
-            right: 80px;
-            width: 20px;
-            text-align: center;
-        }
-
-        .relative {
-            position: relative;
-        }
-
-        .mgl20 {
-            margin-left: 20px;
-        }
-
-        .PrintEvent {
-            width: 90px;
-            height: 35px;
-            font-size: 28px;
-            background-color: #0050F1;
-            color: #FFFFFF;
-            text-align: center;
-            border: 0px;
-            margin: 20px auto;
-            display: inherit;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .PrintEvent:hover {
-            background-color: #0146d2;
+        .tabpanel {      
+            margin-top: 40pt;      
+            
         }
     </style>
 </head>
 
 <body>
-    <div class="contianer">
-        <div class="print-box">
-           
-            <div class="print-box-item">
-                print Image
+    <div class="container">
+        <div class="tabpanel">
+            <div class="outer">
+                <div id="printPreview" style="margin:0 auto; width: 360px;border: #000 solid 1px;">
+                
+                </div>
+                <div style="width:100%; text-align: center; margin-top: 50px; font-size:xx-large; ">
+                    Continue
+                </div>
             </div>
         </div>
     </div>
 
 
 
-    <div id="printImages" >
-
+    <div id="printImages" style="overflow: hidden; height: 0;">
         <div id="PrintContent">
             <div style="padding-top:0px;width: 100%;text-align: center;">                
 				<img src="https://cakriwut.github.io/posprinter/servicesg.png" style="max-width:260px;display:inline-block">
@@ -421,9 +238,24 @@
 
 
 <script type="text/javascript" src="./iminPrint.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script type="text/javascript" src="./dom-to-image.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
+    $(function() {
+        var node = $('#PrintContent')[0]
+        domtoimage.toSvg(node).then(function (imgData) {
+               var img = new Image();
+               img.src = imgData;
+               img.width = 358;
+               
+               $('#printPreview').append(img);        
+                                  
+            });   
+        var device = '192.168.18.39' 
+        var IminPrintInstance = iminPrint(device);   
+        init(IminPrintInstance);   
+    });
 
     $('.print-box-item').off('click').on('click', function (e) {
         e.stopPropagation();
@@ -431,31 +263,50 @@
         var IminPrintInstance = iminPrint(device);           
         init(IminPrintInstance);
     });
-    $('#PrintContent').show();
+   
     function init(Instance) {
         
         Instance.connect(function (ws) {
             if (ws.readyState == ws.OPEN) {
                 
-                $('#PrintContent').show();
-                var node = $('#PrintContent')[0];//
-
-                //var clone = node.cloneNode(true);
-                //node.css('display','block'); //.getElementById('PrintContent');
-                //var printArea = node[0];
-               // node.css('display','none');
-                //node.style.display = "block"
+               
+                var node = $('#PrintContent')[0]
                 domtoimage.toJpeg(node).then(function (dataUrl) {
-                    $('#PrintContent').hide();
-                    //node.parent().css('display','none');
                     Instance.printSingleBitmap(dataUrl);
                     setTimeout(function() {
-                        Instance.printAndFeedPaper(125);
+                        Instance.printAndFeedPaper(130);
                         Instance.partialCut();                        
                         //Instance.printAndFeedPaper(100); 
-                    },600);                         
+                    },650);                         
                 }); 
-            }
+
+                //  var node = $('#PrintContent')[0];
+                //  html2canvas(node, {
+                //      logging: true, useCORS: true
+                //  }).then(function (canvas) {
+                //      var imgData = canvas.toDataURL('image/jpeg');
+                //      Instance.printSingleBitmap(imgData);
+                //      setTimeout(function() {
+                //          Instance.printAndFeedPaper(125);
+                //          Instance.partialCut();                        
+                //          //Instance.printAndFeedPaper(100); 
+                //      },600);                        
+                //  });                    
+
+                //  html2canvas(node, {
+                //     logging: true,
+                //     useCORS: true,
+                //     onrendered: function (canvas) {
+                //         var imgData = canvas.toDataURL('image/jpeg');
+                //         Instance.printSingleBitmap(imgData);
+                //         setTimeout(function() {
+                //             Instance.printAndFeedPaper(125);
+                //             Instance.partialCut();                        
+                //             //Instance.printAndFeedPaper(100); 
+                //         },600);                         
+                //     }
+                //  }); // html canvas
+            } // ws ready
         });
     }
 
