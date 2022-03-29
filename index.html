@@ -242,6 +242,7 @@
 <script type="text/javascript" src="./dom-to-image.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
+    var IminPrintInstance = iminPrint();   
     $(function() {
         var node = $('#PrintContent')[0]
         domtoimage.toSvg(node).then(function (imgData) {
@@ -252,17 +253,10 @@
                $('#printPreview').append(img);        
                                   
             });   
-
-        var IminPrintInstance = iminPrint();   
+        
         init(IminPrintInstance);   
     });
 
-    $('.print-box-item').off('click').on('click', function (e) {
-        e.stopPropagation();
-        var device = '192.168.18.39'
-        var IminPrintInstance = iminPrint(device);           
-        init(IminPrintInstance);
-    });
    
     function init(Instance) {
         
