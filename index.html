@@ -242,7 +242,11 @@
 <script type="text/javascript" src="./dom-to-image.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
-    var IminPrintInstance = iminPrint();   
+    var device = '192.168.18.39' 
+    var IminPrintInstance = iminPrint(); 
+    var connectAttempt = 0;
+    
+
     $(function() {
         var node = $('#PrintContent')[0]
         domtoimage.toSvg(node).then(function (imgData) {
@@ -252,18 +256,18 @@
                
                $('#printPreview').append(img);        
                                   
-            });   
-        
-        init(IminPrintInstance);   
+            });     
+        init(IminPrintInstance);                   
     });
-
+       
    
     function init(Instance) {
         
         Instance.connect(function (ws) {
+            connectAttempt = connectAttempt + 1;
+
             if (ws.readyState == ws.OPEN) {
-                
-               
+                Instance.initPrinter();              
                 var node = $('#PrintContent')[0]
                 domtoimage.toJpeg(node).then(function (dataUrl) {
                     Instance.printSingleBitmap(dataUrl);
@@ -274,33 +278,11 @@
                     },650);                         
                 }); 
 
-                //  var node = $('#PrintContent')[0];
-                //  html2canvas(node, {
-                //      logging: true, useCORS: true
-                //  }).then(function (canvas) {
-                //      var imgData = canvas.toDataURL('image/jpeg');
-                //      Instance.printSingleBitmap(imgData);
-                //      setTimeout(function() {
-                //          Instance.printAndFeedPaper(125);
-                //          Instance.partialCut();                        
-                //          //Instance.printAndFeedPaper(100); 
-                //      },600);                        
-                //  });                    
-
-                //  html2canvas(node, {
-                //     logging: true,
-                //     useCORS: true,
-                //     onrendered: function (canvas) {
-                //         var imgData = canvas.toDataURL('image/jpeg');
-                //         Instance.printSingleBitmap(imgData);
-                //         setTimeout(function() {
-                //             Instance.printAndFeedPaper(125);
-                //             Instance.partialCut();                        
-                //             //Instance.printAndFeedPaper(100); 
-                //         },600);                         
-                //     }
-                //  }); // html canvas
             } // ws ready
+            else if(connectAttempt < 5){
+
+                setTimeout(init(Instance), 500);
+            }
         });
     }
 
